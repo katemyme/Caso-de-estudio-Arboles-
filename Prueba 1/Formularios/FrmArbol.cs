@@ -85,6 +85,52 @@ namespace Prueba_1.Formularios
 
         }
 
+        private void btnBuscarRama_Click(object sender, EventArgs e)
+        {
+            string textoBuscar = TbRama.Text.Trim();
+            if (textoBuscar.Length == 0) return;
+            TreeNode nodoEncontrado = BuscarNodo(tvArbol.Nodes, textoBuscar);
+            if (nodoEncontrado != null)
+            {
+                tvArbol.SelectedNode.BackColor = tvArbol.BackColor;
+                tvArbol.SelectedNode = nodoEncontrado;
+                tvArbol.SelectedNode.Expand();
+                nodoEncontrado.BackColor = Color.Yellow;
+
+
+            }
+            else
+            {
+                MessageBox.Show("Nodo no encontrado");
+            }
+        }
+        private TreeNode BuscarNodo(TreeNodeCollection nodos, string textoBuscar)
+        {
+            foreach (TreeNode nodo in nodos)
+            {
+                if (nodo.Text.Equals(textoBuscar, StringComparison.OrdinalIgnoreCase))
+                {
+                    return nodo;
+                }
+                TreeNode nodoEncontrado = BuscarNodo(nodo.Nodes, textoBuscar);
+                if (nodoEncontrado != null)
+                {
+                    return nodoEncontrado;
+                }
+            }
+            return null;
+        }
+
+        private void btnElimiarRama_Click(object sender, EventArgs e)
+        {
+            if (tvArbol.SelectedNode != null)
+            {
+                tvArbol.SelectedNode.Remove();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un Nodo para eliminar");
+            }
 
         }
     }
