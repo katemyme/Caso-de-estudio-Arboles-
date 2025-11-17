@@ -51,6 +51,7 @@
             this.btnCalcularDistancia = new System.Windows.Forms.Button();
             this.gbDistanca = new System.Windows.Forms.GroupBox();
             this.lblRuta = new System.Windows.Forms.Label();
+            this.btnBuscarDijk = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gbConexiones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -266,11 +267,22 @@
             this.lblRuta.TabIndex = 0;
             this.lblRuta.Text = "Ruta";
             // 
+            // btnBuscarDijk
+            // 
+            this.btnBuscarDijk.Location = new System.Drawing.Point(194, 590);
+            this.btnBuscarDijk.Name = "btnBuscarDijk";
+            this.btnBuscarDijk.Size = new System.Drawing.Size(177, 103);
+            this.btnBuscarDijk.TabIndex = 11;
+            this.btnBuscarDijk.Text = "Buscar ruta por DIJKASTRA";
+            this.btnBuscarDijk.UseVisualStyleBackColor = true;
+            this.btnBuscarDijk.Click += new System.EventHandler(this.btnBuscarDijk_Click);
+            // 
             // FrmGrafo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 746);
+            this.Controls.Add(this.btnBuscarDijk);
             this.Controls.Add(this.gbDistanca);
             this.Controls.Add(this.btnCalcularDistancia);
             this.Controls.Add(this.tnRutaDestino);
@@ -322,5 +334,6 @@
         private System.Windows.Forms.Button btnCalcularDistancia;
         private System.Windows.Forms.GroupBox gbDistanca;
         private System.Windows.Forms.Label lblRuta;
+        private System.Windows.Forms.Button btnBuscarDijk;
     }
 }

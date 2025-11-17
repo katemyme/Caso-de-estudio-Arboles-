@@ -19,7 +19,6 @@ namespace Prueba_1.Modelos
             }
         }
 
-        // Lista de adyacencia: edificio -> lista de aristas
         private readonly Dictionary<string, List<Arista>> _adj = new Dictionary<string, List<Arista>>(StringComparer.OrdinalIgnoreCase);
 
         public bool AgregarEdificio(string nombre)
@@ -30,7 +29,6 @@ namespace Prueba_1.Modelos
             return true;
         }
 
-        
         public bool Conectar(string origen, string destino, int distancia)
         {
             if (string.IsNullOrWhiteSpace(origen) || string.IsNullOrWhiteSpace(destino)) return false;
@@ -74,7 +72,6 @@ namespace Prueba_1.Modelos
             return sb.ToString();
         }
 
-        // BFS: retorna cadena con la ruta y distancia total, o mensaje de no encontrada
         public string RutaBfs(string origen, string destino)
         {
             if (string.IsNullOrWhiteSpace(origen) || string.IsNullOrWhiteSpace(destino))
@@ -134,6 +131,78 @@ namespace Prueba_1.Modelos
             }
 
             return $"Ruta ({ruta.Count} edificios, distancia total {distanciaTotal}): " + string.Join(" -> ", ruta);
+        }
+
+        // Dijkstra: ruta mínima en distancia
+        public string RutaDijkstra(string origen, string destino)
+        {
+            if (string.IsNullOrWhiteSpace(origen) || string.IsNullOrWhiteSpace(destino))
+                return "Origen o destino vacíos.";
+            if (!_adj.ContainsKey(origen) || !_adj.ContainsKey(destino))
+                return "Uno o ambos edificios no existen en el grafo.";
+            if (string.Equals(origen, destino, StringComparison.OrdinalIgnoreCase))
+                return "Origen y destino son el mismo.";
+
+            var dist = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            var prev = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            foreach (var nodo in _adj.Keys)
+                dist[nodo] = int.MaxValue;
+            dist[origen] = 0;
+
+            var noVisitados = new HashSet<string>(_adj.Keys, StringComparer.OrdinalIgnoreCase);
+
+            while (noVisitados.Count > 0)
+            {
+                string actual = null;
+                int mejor = int.MaxValue;
+                foreach (var n in noVisitados)
+                {
+                    int d = dist[n];
+                    if (d < mejor)
+                    {
+                        mejor = d;
+                        actual = n;
+                    }
+                }
+
+                if (actual == null || dist[actual] == int.MaxValue)
+                    break; // no alcanzable
+
+                noVisitados.Remove(actual);
+
+                if (actual.Equals(destino, StringComparison.OrdinalIgnoreCase))
+                    break;
+
+                foreach (var arista in _adj[actual])
+                {
+                    var vecino = arista.Destino;
+                    if (!noVisitados.Contains(vecino)) continue;
+                    long candidata = (long)dist[actual] + arista.Distancia;
+                    if (candidata < dist[vecino])
+                    {
+                        dist[vecino] = (int)candidata;
+                        prev[vecino] = actual;
+                    }
+                }
+            }
+
+            if (!prev.ContainsKey(destino) && !origen.Equals(destino, StringComparison.OrdinalIgnoreCase))
+                return $"No existe ruta entre '{origen}' y '{destino}'.";
+
+            var ruta = new List<string>();
+            string nodoFinal = destino;
+            while (!nodoFinal.Equals(origen, StringComparison.OrdinalIgnoreCase))
+            {
+                ruta.Add(nodoFinal);
+                if (!prev.ContainsKey(nodoFinal))
+                    return $"No existe ruta entre '{origen}' y '{destino}'.";
+                nodoFinal = prev[nodoFinal];
+            }
+            ruta.Add(origen);
+            ruta.Reverse();
+
+            int distanciaTotal = dist[destino];
+            return $"Ruta óptima ({ruta.Count} edificios, distancia total {distanciaTotal}): " + string.Join(" -> ", ruta);
         }
     }
 }

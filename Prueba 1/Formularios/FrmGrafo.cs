@@ -18,6 +18,7 @@ namespace Prueba_1.Formularios
            
             btnConexion.Click += btnConexion_Click;
             btnCalcularDistancia.Click += btnCalcularDistancia_Click;
+            btnBuscarDijk.Click += btnBuscarDijk_Click;
             ActualizarLabel();
         }
 
@@ -70,6 +71,14 @@ namespace Prueba_1.Formularios
             lblRuta.Text = resultado;
         }
 
+        private void btnBuscarDijk_Click(object sender, EventArgs e)
+        {
+            var origen = tbRutaOrigen.Text.Trim();
+            var destino = tnRutaDestino.Text.Trim();
+            var resultado = _grafo.RutaDijkstra(origen, destino);
+            lblRuta.Text = resultado;
+        }
+
         private void ActualizarLabel()
         {
             lblGrafo.Text = _grafo.RepresentacionTexto();
@@ -86,5 +95,7 @@ namespace Prueba_1.Formularios
         private void label4_Click(object sender, EventArgs e)
         {
         }
+
+
     }
 }
