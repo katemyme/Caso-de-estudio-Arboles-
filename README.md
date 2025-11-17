@@ -81,20 +81,11 @@ Resultado: `Ruta (3 edificios, distancia total 14): A -> B -> C`
 - C# 7.3
 - WinForms
 
-## Sugerencias de mejora
-- Implementar clase real en `arbolmodel` (estructura propia de nodos para desacoplar del TreeView).
-- Validar duplicados en el árbol y nombres vacíos.
-- Persistencia (archivo JSON/XML o base de datos) para árbol y grafo.
-- Revisión de nombres de menú (consistencia).
-- Agregar eliminación de edificios y aristas en el grafo.
-- Implementar algoritmo Dijkstra para rutas de menor distancia ponderada.
-- Añadir pruebas unitarias (por ejemplo con MSTest o NUnit).
-- Internacionalización (Resources).
 
 ## Rama y repositorio
 Rama activa: modularizacion  
 Remoto: origin (GitHub) - “Caso-de-estudio-Arboles-”  
-Se recomienda documentar convenciones de ramas si se continuará la expansión.
+
 
 
 
