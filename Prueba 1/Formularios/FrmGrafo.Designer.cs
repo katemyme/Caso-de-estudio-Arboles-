@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbNodo = new System.Windows.Forms.TextBox();
-            this.btnAgregarGrafo = new System.Windows.Forms.Button();
             this.btnEliminarGrafo = new System.Windows.Forms.Button();
+            this.btnAgregarGrafo = new System.Windows.Forms.Button();
+            this.tbNodo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbConexiones = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbOrigen = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbDestino = new System.Windows.Forms.TextBox();
+            this.tbDistancia = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnConexion = new System.Windows.Forms.Button();
+            this.tbDestino = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbOrigen = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblGrafo = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbDistancia = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.gbConexiones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -62,21 +62,14 @@
             this.groupBox1.Text = "Edificios";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label1
+            // btnEliminarGrafo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ingrese el nombre del edificio";
-            // 
-            // tbNodo
-            // 
-            this.tbNodo.Location = new System.Drawing.Point(7, 51);
-            this.tbNodo.Name = "tbNodo";
-            this.tbNodo.Size = new System.Drawing.Size(182, 22);
-            this.tbNodo.TabIndex = 2;
+            this.btnEliminarGrafo.Location = new System.Drawing.Point(232, 89);
+            this.btnEliminarGrafo.Name = "btnEliminarGrafo";
+            this.btnEliminarGrafo.Size = new System.Drawing.Size(147, 42);
+            this.btnEliminarGrafo.TabIndex = 4;
+            this.btnEliminarGrafo.Text = "Eliminar";
+            this.btnEliminarGrafo.UseVisualStyleBackColor = true;
             // 
             // btnAgregarGrafo
             // 
@@ -88,14 +81,21 @@
             this.btnAgregarGrafo.UseVisualStyleBackColor = true;
             this.btnAgregarGrafo.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // btnEliminarGrafo
+            // tbNodo
             // 
-            this.btnEliminarGrafo.Location = new System.Drawing.Point(232, 89);
-            this.btnEliminarGrafo.Name = "btnEliminarGrafo";
-            this.btnEliminarGrafo.Size = new System.Drawing.Size(147, 42);
-            this.btnEliminarGrafo.TabIndex = 4;
-            this.btnEliminarGrafo.Text = "Eliminar";
-            this.btnEliminarGrafo.UseVisualStyleBackColor = true;
+            this.tbNodo.Location = new System.Drawing.Point(7, 51);
+            this.tbNodo.Name = "tbNodo";
+            this.tbNodo.Size = new System.Drawing.Size(182, 22);
+            this.tbNodo.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(183, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Ingrese el nombre del edificio";
             // 
             // gbConexiones
             // 
@@ -113,21 +113,38 @@
             this.gbConexiones.TabStop = false;
             this.gbConexiones.Text = "ConectarNodos";
             // 
-            // label2
+            // tbDistancia
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Ingrese el origen";
+            this.tbDistancia.Location = new System.Drawing.Point(13, 152);
+            this.tbDistancia.Name = "tbDistancia";
+            this.tbDistancia.Size = new System.Drawing.Size(198, 22);
+            this.tbDistancia.TabIndex = 6;
             // 
-            // tbOrigen
+            // label4
             // 
-            this.tbOrigen.Location = new System.Drawing.Point(10, 42);
-            this.tbOrigen.Name = "tbOrigen";
-            this.tbOrigen.Size = new System.Drawing.Size(201, 22);
-            this.tbOrigen.TabIndex = 1;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(230, 16);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "ingrese la distancia entre los edificios";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // btnConexion
+            // 
+            this.btnConexion.Location = new System.Drawing.Point(235, 42);
+            this.btnConexion.Name = "btnConexion";
+            this.btnConexion.Size = new System.Drawing.Size(137, 62);
+            this.btnConexion.TabIndex = 4;
+            this.btnConexion.Text = "Agregar Conexiones";
+            this.btnConexion.UseVisualStyleBackColor = true;
+            // 
+            // tbDestino
+            // 
+            this.tbDestino.Location = new System.Drawing.Point(13, 91);
+            this.tbDestino.Name = "tbDestino";
+            this.tbDestino.Size = new System.Drawing.Size(198, 22);
+            this.tbDestino.TabIndex = 3;
             // 
             // label3
             // 
@@ -138,21 +155,21 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "ingrese el destino";
             // 
-            // tbDestino
+            // tbOrigen
             // 
-            this.tbDestino.Location = new System.Drawing.Point(13, 91);
-            this.tbDestino.Name = "tbDestino";
-            this.tbDestino.Size = new System.Drawing.Size(198, 22);
-            this.tbDestino.TabIndex = 3;
+            this.tbOrigen.Location = new System.Drawing.Point(10, 42);
+            this.tbOrigen.Name = "tbOrigen";
+            this.tbOrigen.Size = new System.Drawing.Size(201, 22);
+            this.tbOrigen.TabIndex = 1;
             // 
-            // btnConexion
+            // label2
             // 
-            this.btnConexion.Location = new System.Drawing.Point(235, 42);
-            this.btnConexion.Name = "btnConexion";
-            this.btnConexion.Size = new System.Drawing.Size(137, 62);
-            this.btnConexion.TabIndex = 4;
-            this.btnConexion.Text = "Agregar Conexiones";
-            this.btnConexion.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Ingrese el origen";
             // 
             // groupBox2
             // 
@@ -171,22 +188,7 @@
             this.lblGrafo.Size = new System.Drawing.Size(592, 493);
             this.lblGrafo.TabIndex = 0;
             this.lblGrafo.Text = "Grafo";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 120);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(235, 16);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "ingrese la distancia de las conexiones";
-            // 
-            // tbDistancia
-            // 
-            this.tbDistancia.Location = new System.Drawing.Point(13, 152);
-            this.tbDistancia.Name = "tbDistancia";
-            this.tbDistancia.Size = new System.Drawing.Size(198, 22);
-            this.tbDistancia.TabIndex = 6;
+            this.lblGrafo.Click += new System.EventHandler(this.lblGrafo_Click);
             // 
             // FrmGrafo
             // 
