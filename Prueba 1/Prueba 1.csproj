@@ -64,6 +64,8 @@
     <Compile Include="Formularios\FrmGrafo.Designer.cs">
       <DependentUpon>FrmGrafo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\arbolmodel.cs" />
+    <Compile Include="Modelos\GrafoModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\FrmArbol.resx">
