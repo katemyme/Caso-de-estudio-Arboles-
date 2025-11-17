@@ -33,16 +33,22 @@
             this.tbHijo = new System.Windows.Forms.TextBox();
             this.TbNodo = new System.Windows.Forms.TextBox();
             this.gbJerarquizacion = new System.Windows.Forms.GroupBox();
+            this.btnElimiarRama = new System.Windows.Forms.Button();
+            this.btnBuscarRama = new System.Windows.Forms.Button();
+            this.TbRama = new System.Windows.Forms.TextBox();
+            this.Busc = new System.Windows.Forms.Label();
             this.btnAgregarHijo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.tvArbol = new System.Windows.Forms.TreeView();
             this.label1 = new System.Windows.Forms.Label();
-            this.Busc = new System.Windows.Forms.Label();
-            this.TbRama = new System.Windows.Forms.TextBox();
-            this.btnBuscarRama = new System.Windows.Forms.Button();
-            this.btnElimiarRama = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblContar = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.gbJerarquizacion.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbHijo
@@ -82,6 +88,42 @@
             this.gbJerarquizacion.TabStop = false;
             this.gbJerarquizacion.Text = "Jerarquizacio (Arbol)";
             this.gbJerarquizacion.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnElimiarRama
+            // 
+            this.btnElimiarRama.Location = new System.Drawing.Point(445, 200);
+            this.btnElimiarRama.Name = "btnElimiarRama";
+            this.btnElimiarRama.Size = new System.Drawing.Size(75, 23);
+            this.btnElimiarRama.TabIndex = 17;
+            this.btnElimiarRama.Text = "Eliminar Rama";
+            this.btnElimiarRama.UseVisualStyleBackColor = true;
+            this.btnElimiarRama.Click += new System.EventHandler(this.btnElimiarRama_Click);
+            // 
+            // btnBuscarRama
+            // 
+            this.btnBuscarRama.Location = new System.Drawing.Point(445, 158);
+            this.btnBuscarRama.Name = "btnBuscarRama";
+            this.btnBuscarRama.Size = new System.Drawing.Size(106, 23);
+            this.btnBuscarRama.TabIndex = 16;
+            this.btnBuscarRama.Text = "Buscar Rama";
+            this.btnBuscarRama.UseVisualStyleBackColor = true;
+            this.btnBuscarRama.Click += new System.EventHandler(this.btnBuscarRama_Click);
+            // 
+            // TbRama
+            // 
+            this.TbRama.Location = new System.Drawing.Point(170, 154);
+            this.TbRama.Name = "TbRama";
+            this.TbRama.Size = new System.Drawing.Size(225, 22);
+            this.TbRama.TabIndex = 15;
+            // 
+            // Busc
+            // 
+            this.Busc.AutoSize = true;
+            this.Busc.Location = new System.Drawing.Point(20, 161);
+            this.Busc.Name = "Busc";
+            this.Busc.Size = new System.Drawing.Size(89, 16);
+            this.Busc.TabIndex = 14;
+            this.Busc.Text = "Buscar Rama";
             // 
             // btnAgregarHijo
             // 
@@ -128,47 +170,53 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Ingrese el nodo principal";
             // 
-            // Busc
+            // groupBox1
             // 
-            this.Busc.AutoSize = true;
-            this.Busc.Location = new System.Drawing.Point(20, 161);
-            this.Busc.Name = "Busc";
-            this.Busc.Size = new System.Drawing.Size(89, 16);
-            this.Busc.TabIndex = 14;
-            this.Busc.Text = "Buscar Rama";
+            this.groupBox1.Controls.Add(this.lblContar);
+            this.groupBox1.Location = new System.Drawing.Point(615, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(506, 58);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Contar";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
-            // TbRama
+            // lblContar
             // 
-            this.TbRama.Location = new System.Drawing.Point(170, 154);
-            this.TbRama.Name = "TbRama";
-            this.TbRama.Size = new System.Drawing.Size(225, 22);
-            this.TbRama.TabIndex = 15;
+            this.lblContar.AutoSize = true;
+            this.lblContar.Location = new System.Drawing.Point(15, 30);
+            this.lblContar.Name = "lblContar";
+            this.lblContar.Size = new System.Drawing.Size(124, 16);
+            this.lblContar.TabIndex = 0;
+            this.lblContar.Text = "Numero de ramas : ";
+            this.lblContar.Click += new System.EventHandler(this.lblContar_Click);
             // 
-            // btnBuscarRama
+            // groupBox2
             // 
-            this.btnBuscarRama.Location = new System.Drawing.Point(445, 158);
-            this.btnBuscarRama.Name = "btnBuscarRama";
-            this.btnBuscarRama.Size = new System.Drawing.Size(106, 23);
-            this.btnBuscarRama.TabIndex = 16;
-            this.btnBuscarRama.Text = "Buscar Rama";
-            this.btnBuscarRama.UseVisualStyleBackColor = true;
-            this.btnBuscarRama.Click += new System.EventHandler(this.btnBuscarRama_Click);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(615, 99);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(525, 610);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Recorrer";
             // 
-            // btnElimiarRama
+            // label3
             // 
-            this.btnElimiarRama.Location = new System.Drawing.Point(445, 200);
-            this.btnElimiarRama.Name = "btnElimiarRama";
-            this.btnElimiarRama.Size = new System.Drawing.Size(75, 23);
-            this.btnElimiarRama.TabIndex = 17;
-            this.btnElimiarRama.Text = "Eliminar Rama";
-            this.btnElimiarRama.UseVisualStyleBackColor = true;
-            this.btnElimiarRama.Click += new System.EventHandler(this.btnElimiarRama_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Forma de recorrer";
             // 
             // FrmArbol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 761);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbJerarquizacion);
             this.Name = "FrmArbol";
             this.Text = "Arbol";
@@ -176,6 +224,10 @@
             this.TextChanged += new System.EventHandler(this.FrmArbol_TextChanged);
             this.gbJerarquizacion.ResumeLayout(false);
             this.gbJerarquizacion.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -194,5 +246,9 @@
         private System.Windows.Forms.Button btnBuscarRama;
         private System.Windows.Forms.TextBox TbRama;
         private System.Windows.Forms.Label Busc;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblContar;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
     }
 }

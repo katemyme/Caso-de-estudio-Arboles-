@@ -133,6 +133,19 @@ namespace Prueba_1.Formularios
             }
 
         }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblContar_Click(object sender, EventArgs e)
+        {
+            int contador = tvArbol.GetNodeCount(true);
+            lblContar.Text = "El arbol tiene " + contador + " nodos";
+            
+
+        }
     }
 }
 
