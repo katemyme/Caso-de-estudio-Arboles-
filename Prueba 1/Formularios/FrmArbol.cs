@@ -147,7 +147,7 @@ namespace Prueba_1.Formularios
         private void btnRecorrer_Click(object sender, EventArgs e)
         {
             if (cbRecorrerPor.SelectedItem == null)
-            {
+            {   
                 MessageBox.Show("Seleccione un tipo de recorrido");
                 return;
             }

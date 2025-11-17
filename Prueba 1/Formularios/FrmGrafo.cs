@@ -21,5 +21,17 @@ namespace Prueba_1.Formularios
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
     }
 }

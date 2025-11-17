@@ -45,11 +45,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblContar = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbRecorrerPor = new System.Windows.Forms.ComboBox();
-            this.btnRecorrer = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.lbRecorrer = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnRecorrer = new System.Windows.Forms.Button();
+            this.cbRecorrerPor = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.gbJerarquizacion.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -144,9 +144,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(17, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 16);
+            this.label2.Size = new System.Drawing.Size(100, 16);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Ingrese el nodo hijo";
+            this.label2.Text = "Ingrese la rama";
             // 
             // btnAgregar
             // 
@@ -208,14 +208,32 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
-            // label3
+            // lbRecorrer
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 34);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Forma de recorrer";
+            this.lbRecorrer.FormattingEnabled = true;
+            this.lbRecorrer.ItemHeight = 16;
+            this.lbRecorrer.Location = new System.Drawing.Point(25, 90);
+            this.lbRecorrer.Name = "lbRecorrer";
+            this.lbRecorrer.Size = new System.Drawing.Size(481, 500);
+            this.lbRecorrer.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 16);
+            this.label4.TabIndex = 4;
+            // 
+            // btnRecorrer
+            // 
+            this.btnRecorrer.Location = new System.Drawing.Point(293, 33);
+            this.btnRecorrer.Name = "btnRecorrer";
+            this.btnRecorrer.Size = new System.Drawing.Size(75, 23);
+            this.btnRecorrer.TabIndex = 2;
+            this.btnRecorrer.Text = "Recorrer";
+            this.btnRecorrer.UseVisualStyleBackColor = true;
+            this.btnRecorrer.Click += new System.EventHandler(this.btnRecorrer_Click);
             // 
             // cbRecorrerPor
             // 
@@ -230,32 +248,14 @@
             this.cbRecorrerPor.Size = new System.Drawing.Size(121, 24);
             this.cbRecorrerPor.TabIndex = 1;
             // 
-            // btnRecorrer
+            // label3
             // 
-            this.btnRecorrer.Location = new System.Drawing.Point(293, 33);
-            this.btnRecorrer.Name = "btnRecorrer";
-            this.btnRecorrer.Size = new System.Drawing.Size(75, 23);
-            this.btnRecorrer.TabIndex = 2;
-            this.btnRecorrer.Text = "Recorrer";
-            this.btnRecorrer.UseVisualStyleBackColor = true;
-            this.btnRecorrer.Click += new System.EventHandler(this.btnRecorrer_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 90);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 16);
-            this.label4.TabIndex = 4;
-            // 
-            // lbRecorrer
-            // 
-            this.lbRecorrer.FormattingEnabled = true;
-            this.lbRecorrer.ItemHeight = 16;
-            this.lbRecorrer.Location = new System.Drawing.Point(25, 90);
-            this.lbRecorrer.Name = "lbRecorrer";
-            this.lbRecorrer.Size = new System.Drawing.Size(481, 500);
-            this.lbRecorrer.TabIndex = 5;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Forma de recorrer";
             // 
             // FrmArbol
             // 
