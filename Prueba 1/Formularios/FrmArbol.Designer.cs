@@ -46,6 +46,10 @@
             this.lblContar = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cbRecorrerPor = new System.Windows.Forms.ComboBox();
+            this.btnRecorrer = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbRecorrer = new System.Windows.Forms.ListBox();
             this.gbJerarquizacion.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -193,13 +197,16 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbRecorrer);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.btnRecorrer);
+            this.groupBox2.Controls.Add(this.cbRecorrerPor);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(615, 99);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(525, 610);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Recorrer";
             // 
             // label3
             // 
@@ -209,6 +216,46 @@
             this.label3.Size = new System.Drawing.Size(115, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Forma de recorrer";
+            // 
+            // cbRecorrerPor
+            // 
+            this.cbRecorrerPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRecorrerPor.FormattingEnabled = true;
+            this.cbRecorrerPor.Items.AddRange(new object[] {
+            "Preorden",
+            "Postorden",
+            "Por niveles"});
+            this.cbRecorrerPor.Location = new System.Drawing.Point(139, 31);
+            this.cbRecorrerPor.Name = "cbRecorrerPor";
+            this.cbRecorrerPor.Size = new System.Drawing.Size(121, 24);
+            this.cbRecorrerPor.TabIndex = 1;
+            // 
+            // btnRecorrer
+            // 
+            this.btnRecorrer.Location = new System.Drawing.Point(293, 33);
+            this.btnRecorrer.Name = "btnRecorrer";
+            this.btnRecorrer.Size = new System.Drawing.Size(75, 23);
+            this.btnRecorrer.TabIndex = 2;
+            this.btnRecorrer.Text = "Recorrer";
+            this.btnRecorrer.UseVisualStyleBackColor = true;
+            this.btnRecorrer.Click += new System.EventHandler(this.btnRecorrer_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 16);
+            this.label4.TabIndex = 4;
+            // 
+            // lbRecorrer
+            // 
+            this.lbRecorrer.FormattingEnabled = true;
+            this.lbRecorrer.ItemHeight = 16;
+            this.lbRecorrer.Location = new System.Drawing.Point(25, 90);
+            this.lbRecorrer.Name = "lbRecorrer";
+            this.lbRecorrer.Size = new System.Drawing.Size(481, 500);
+            this.lbRecorrer.TabIndex = 5;
             // 
             // FrmArbol
             // 
@@ -250,5 +297,9 @@
         private System.Windows.Forms.Label lblContar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbRecorrerPor;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnRecorrer;
+        private System.Windows.Forms.ListBox lbRecorrer;
     }
 }
