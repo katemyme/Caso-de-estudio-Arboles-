@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnEliminarGrafo = new System.Windows.Forms.Button();
             this.btnAgregarGrafo = new System.Windows.Forms.Button();
             this.tbNodo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnEliminarGrafo);
             this.groupBox1.Controls.Add(this.btnAgregarGrafo);
             this.groupBox1.Controls.Add(this.tbNodo);
             this.groupBox1.Controls.Add(this.label1);
@@ -71,15 +69,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edificios";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // btnEliminarGrafo
-            // 
-            this.btnEliminarGrafo.Location = new System.Drawing.Point(232, 89);
-            this.btnEliminarGrafo.Name = "btnEliminarGrafo";
-            this.btnEliminarGrafo.Size = new System.Drawing.Size(147, 42);
-            this.btnEliminarGrafo.TabIndex = 4;
-            this.btnEliminarGrafo.Text = "Eliminar";
-            this.btnEliminarGrafo.UseVisualStyleBackColor = true;
             // 
             // btnAgregarGrafo
             // 
@@ -314,7 +303,6 @@
         private System.Windows.Forms.Button btnAgregarGrafo;
         private System.Windows.Forms.TextBox tbNodo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnEliminarGrafo;
         private System.Windows.Forms.GroupBox gbConexiones;
         private System.Windows.Forms.TextBox tbOrigen;
         private System.Windows.Forms.Label label2;
