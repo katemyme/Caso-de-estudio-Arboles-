@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Prueba_1.Modelos
@@ -29,7 +30,7 @@ namespace Prueba_1.Modelos
             return true;
         }
 
-        // Conexión bidireccional
+        
         public bool Conectar(string origen, string destino, int distancia)
         {
             if (string.IsNullOrWhiteSpace(origen) || string.IsNullOrWhiteSpace(destino)) return false;
@@ -37,7 +38,6 @@ namespace Prueba_1.Modelos
             if (distancia <= 0) return false;
             if (!_adj.ContainsKey(origen) || !_adj.ContainsKey(destino)) return false;
 
-            // Evitar duplicados exactos
             if (!_adj[origen].Exists(a => a.Destino.Equals(destino, StringComparison.OrdinalIgnoreCase)))
             {
                 _adj[origen].Add(new Arista(destino, distancia));
@@ -72,6 +72,68 @@ namespace Prueba_1.Modelos
                 sb.AppendLine();
             }
             return sb.ToString();
+        }
+
+        // BFS: retorna cadena con la ruta y distancia total, o mensaje de no encontrada
+        public string RutaBfs(string origen, string destino)
+        {
+            if (string.IsNullOrWhiteSpace(origen) || string.IsNullOrWhiteSpace(destino))
+                return "Origen o destino vacíos.";
+            if (!_adj.ContainsKey(origen) || !_adj.ContainsKey(destino))
+                return "Uno o ambos edificios no existen en el grafo.";
+            if (string.Equals(origen, destino, StringComparison.OrdinalIgnoreCase))
+                return "Origen y destino son el mismo.";
+
+            var visitados = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var prev = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            var q = new Queue<string>();
+            visitados.Add(origen);
+            q.Enqueue(origen);
+
+            bool encontrado = false;
+            while (q.Count > 0 && !encontrado)
+            {
+                var actual = q.Dequeue();
+                foreach (var arista in _adj[actual])
+                {
+                    var vecino = arista.Destino;
+                    if (!visitados.Contains(vecino))
+                    {
+                        visitados.Add(vecino);
+                        prev[vecino] = actual;
+                        if (vecino.Equals(destino, StringComparison.OrdinalIgnoreCase))
+                        {
+                            encontrado = true;
+                            break;
+                        }
+                        q.Enqueue(vecino);
+                    }
+                }
+            }
+
+            if (!encontrado) return $"No existe ruta entre '{origen}' y '{destino}'.";
+
+            // Reconstruir ruta
+            var ruta = new List<string>();
+            string nodo = destino;
+            while (!nodo.Equals(origen, StringComparison.OrdinalIgnoreCase))
+            {
+                ruta.Add(nodo);
+                nodo = prev[nodo];
+            }
+            ruta.Add(origen);
+            ruta.Reverse();
+
+            int distanciaTotal = 0;
+            for (int i = 0; i < ruta.Count - 1; i++)
+            {
+                var desde = ruta[i];
+                var hacia = ruta[i + 1];
+                var arista = _adj[desde].First(a => a.Destino.Equals(hacia, StringComparison.OrdinalIgnoreCase));
+                distanciaTotal += arista.Distancia;
+            }
+
+            return $"Ruta ({ruta.Count} edificios, distancia total {distanciaTotal}): " + string.Join(" -> ", ruta);
         }
     }
 }

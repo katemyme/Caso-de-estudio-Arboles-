@@ -15,8 +15,9 @@ namespace Prueba_1.Formularios
 
         private void FrmGrafo_Load(object sender, EventArgs e)
         {
-            // Asociar evento que no estaba conectado en el diseñador
+           
             btnConexion.Click += btnConexion_Click;
+            btnCalcularDistancia.Click += btnCalcularDistancia_Click;
             ActualizarLabel();
         }
 
@@ -61,6 +62,14 @@ namespace Prueba_1.Formularios
             }
         }
 
+        private void btnCalcularDistancia_Click(object sender, EventArgs e)
+        {
+            var origen = tbRutaOrigen.Text.Trim();
+            var destino = tnRutaDestino.Text.Trim();
+            var resultado = _grafo.RutaBfs(origen, destino);
+            lblRuta.Text = resultado;
+        }
+
         private void ActualizarLabel()
         {
             lblGrafo.Text = _grafo.RepresentacionTexto();
@@ -76,7 +85,6 @@ namespace Prueba_1.Formularios
 
         private void label4_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

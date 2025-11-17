@@ -43,9 +43,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblGrafo = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbRutaOrigen = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tnRutaDestino = new System.Windows.Forms.TextBox();
+            this.btnCalcularDistancia = new System.Windows.Forms.Button();
+            this.gbDistanca = new System.Windows.Forms.GroupBox();
+            this.lblRuta = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbConexiones.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.gbDistanca.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -108,7 +118,7 @@
             this.gbConexiones.Controls.Add(this.label2);
             this.gbConexiones.Location = new System.Drawing.Point(20, 199);
             this.gbConexiones.Name = "gbConexiones";
-            this.gbConexiones.Size = new System.Drawing.Size(396, 211);
+            this.gbConexiones.Size = new System.Drawing.Size(396, 200);
             this.gbConexiones.TabIndex = 1;
             this.gbConexiones.TabStop = false;
             this.gbConexiones.Text = "ConectarNodos";
@@ -125,9 +135,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(230, 16);
+            this.label4.Size = new System.Drawing.Size(288, 16);
             this.label4.TabIndex = 5;
-            this.label4.Text = "ingrese la distancia entre los edificios";
+            this.label4.Text = "ingrese la distancia entre los edificios  (Metros )";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnConexion
@@ -190,11 +200,96 @@
             this.lblGrafo.Text = "Grafo";
             this.lblGrafo.Click += new System.EventHandler(this.lblGrafo_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 428);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 16);
+            this.label5.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(178, 421);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 23);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Buscar ruta";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 464);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(134, 16);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Nombre del edificio 1";
+            // 
+            // tbRutaOrigen
+            // 
+            this.tbRutaOrigen.Location = new System.Drawing.Point(22, 483);
+            this.tbRutaOrigen.Name = "tbRutaOrigen";
+            this.tbRutaOrigen.Size = new System.Drawing.Size(291, 22);
+            this.tbRutaOrigen.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(22, 512);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(134, 16);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Nombre del edificio 2";
+            // 
+            // tnRutaDestino
+            // 
+            this.tnRutaDestino.Location = new System.Drawing.Point(20, 545);
+            this.tnRutaDestino.Name = "tnRutaDestino";
+            this.tnRutaDestino.Size = new System.Drawing.Size(293, 22);
+            this.tnRutaDestino.TabIndex = 8;
+            // 
+            // btnCalcularDistancia
+            // 
+            this.btnCalcularDistancia.Location = new System.Drawing.Point(20, 585);
+            this.btnCalcularDistancia.Name = "btnCalcularDistancia";
+            this.btnCalcularDistancia.Size = new System.Drawing.Size(153, 108);
+            this.btnCalcularDistancia.TabIndex = 9;
+            this.btnCalcularDistancia.Text = "Buscar ruta por BFS";
+            this.btnCalcularDistancia.UseVisualStyleBackColor = true;
+            // 
+            // gbDistanca
+            // 
+            this.gbDistanca.Controls.Add(this.lblRuta);
+            this.gbDistanca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbDistanca.Location = new System.Drawing.Point(423, 558);
+            this.gbDistanca.Name = "gbDistanca";
+            this.gbDistanca.Size = new System.Drawing.Size(605, 176);
+            this.gbDistanca.TabIndex = 10;
+            this.gbDistanca.TabStop = false;
+            this.gbDistanca.Text = "Ruta";
+            // 
+            // lblRuta
+            // 
+            this.lblRuta.AutoSize = true;
+            this.lblRuta.Location = new System.Drawing.Point(10, 27);
+            this.lblRuta.Name = "lblRuta";
+            this.lblRuta.Size = new System.Drawing.Size(35, 16);
+            this.lblRuta.TabIndex = 0;
+            this.lblRuta.Text = "Ruta";
+            // 
             // FrmGrafo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 746);
+            this.Controls.Add(this.gbDistanca);
+            this.Controls.Add(this.btnCalcularDistancia);
+            this.Controls.Add(this.tnRutaDestino);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.tbRutaOrigen);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbConexiones);
             this.Controls.Add(this.groupBox1);
@@ -206,7 +301,10 @@
             this.gbConexiones.ResumeLayout(false);
             this.gbConexiones.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.gbDistanca.ResumeLayout(false);
+            this.gbDistanca.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -227,5 +325,14 @@
         private System.Windows.Forms.Label lblGrafo;
         private System.Windows.Forms.TextBox tbDistancia;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbRutaOrigen;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tnRutaDestino;
+        private System.Windows.Forms.Button btnCalcularDistancia;
+        private System.Windows.Forms.GroupBox gbDistanca;
+        private System.Windows.Forms.Label lblRuta;
     }
 }
