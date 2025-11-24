@@ -21,6 +21,11 @@ namespace Prueba_1.Formularios
             ActualizarLabel();
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var nombre = tbNodo.Text.Trim();
